@@ -1,0 +1,20 @@
+#!/bin/bash
+interface=$(ip l | awk 'NR==3 {print $2}' | tr -d :)
+echo killing wpa_supplicant
+sudo killall wpa_supplicant
+echo killing dhclient 
+sudo killall dhclient
+echo unblocking
+sudo rfkill unblock all
+echo turning off powersave
+sudo iw dev $interface set power_save off
+echo set $interface down
+sudo ip link set dev $interface down
+echo setting ibss
+sudo iw dev $interface set type ibss
+echo set $interface up
+sudo ip link set dev $interface up
+echo wpa_supplicant
+sudo wpa_supplicant -c/usr/local/bin/conf/h.conf -i$interface -B
+echo dh
+sudo dhclient $interface -v -4

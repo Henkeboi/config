@@ -1,0 +1,50 @@
+#increase volume slow
+"pactl set-sink-volume @DEFAULT_SINK@ +1000 && kill "$(ps -ejH | grep -A 2 sleep | grep -B 1 dwm | head -1 | awk '{print $1}')""
+    Alt + Alt_L + XF86AudioRaiseVolume
+
+#increase volume fast
+"pactl set-sink-volume @DEFAULT_SINK@ +4000 && kill "$(ps -ejH | grep -A 2 sleep | grep -B 1 dwm | head -1 | awk '{print $1}')""
+    XF86AudioRaiseVolume
+ 
+#decrease volume fast
+"pactl set-sink-volume @DEFAULT_SINK@ -4000 && kill "$(ps -ejH | grep -A1 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    XF86AudioLowerVolume
+
+#decrease volume slow
+"pactl set-sink-volume @DEFAULT_SINK@ -1000 && kill "$(ps -ejH | grep -A1 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    Alt + Alt_L + XF86AudioLowerVolume
+
+#mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    XF86AudioMute
+
+#increase backlight fast
+"light -A 20 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    Alt + Alt_L + XF86MonBrightnessUp
+
+#increase backlight slow
+"light -A 1 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    XF86MonBrightnessUp
+
+#decrease backlight slow
+"light -U 1 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    XF86MonBrightnessDown
+
+#decrease backlight fast
+"light -U 20 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    Alt + Alt_L + XF86MonBrightnessDown
+
+"light -U 1000 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    XF86AudioMicMute
+
+"light -A 1000 && kill "$(ps -ejH | grep -A2 sleep | grep -B1 dwm | head -1 | awk '{print $1}')""
+    F5
+
+"playerctl play-pause"
+  Mod4 + l
+
+"playerctl next"
+  Mod4 + p
+
+"playerctl previous"
+  XF86WebCam
